@@ -1,0 +1,89 @@
+<!Doctype HTML>
+<Html>
+	<head>
+		<title></title>
+		<style>
+		</style>
+		<link rel="stylesheet" href="./styles.css"/>
+	</head>
+	<body>
+		<div id="main-wrapper">
+				<div id="content-wrapper">
+		<header id="main-top-line">
+			<h1>Steal a deal</h1>
+		</header>
+		<div id="images-wrapper">
+			<ul id="all-images">
+				<li class="image"><img src=></li>
+				<li class="image"><img src=></li>
+				<li class="image"><img src=></li>
+				<li class="image"><img src=></li>
+			</ul>
+		</div>
+		<aside id="main-right-bar">
+			<h3 id="cart-header">Currently in your cart:</h3>
+				<div id="ordered-goods">
+					<ol>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ol>
+				</div>
+				<div id="coupon">
+					<form id="discount-coupon">
+						<label><span id="pre-coupon-text">Enter your coupon code here (if any)</span><input id="enter-coupon" type="text" name="coupon-code"/></label>
+
+					</form>
+				</div>
+				<div id="total">
+					<h3>Total:</h3>
+				</div>
+				<div id="proceed-btn"> 
+					<h4>Proceed</h4>
+				</div>
+			</aside>
+			<div id="product-details">
+				<div id="model-price">
+					
+				</div>
+				<div id="sizes-add-to-cart">
+					<div id="sizes">
+						<ul>
+							<li class="size">35</li>
+							<li class="size">36</li>
+							<li class="size">37</li>
+							<li class="size">38</li>
+							<li class="size">39</li>
+							<li class="size">40</li>
+							<li class="size">41</li>
+							<li class="size">42</li>
+							<li class="size">43</li>
+							<li class="size">44</li>
+						</ul>
+					</div>
+					<div id="add-to-cart">
+						<span id=add-to-cart-button>Add to cart</span>
+					</div>
+				</div>
+				<div id="product-features">
+					<ul>
+						<li class="feature"></li>
+						<li class="feature"></li>
+						<li class="feature"></li>
+						<li class="feature"></li>
+						<li class="feature"></li>
+						<li class="feature"></li>
+					</ul>
+				</div>
+				<footer id="main-bottom-line">
+				Copyright Cookie Monster
+				</footer>
+			</div>
+		</div>
+		</div>
+	</body>
+</Html>

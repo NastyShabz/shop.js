@@ -1,0 +1,196 @@
+ * {
+			    	box-sizing: border-box;
+			    }
+
+				html, body{
+					background-color: #f3f5f7;
+					margin: 0;
+					padding: 0;
+					height: 100%;
+					font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+					font-weight: 300;
+				}
+
+				#main-wrapper{
+					width: 1080px;
+					background: #fff;
+					margin: 0 auto;
+					overflow: hidden;
+				}
+
+				#main-left-bar{
+					width: 20%;
+					border-right: 1px solid #e3e5e7;
+					padding: 20px;
+					float: left;
+				}
+
+				.partitions{
+					list-style-type: none;
+  					padding-bottom: 20px;
+				}
+
+				.nav-top-group{
+					padding: 0;
+					margin: 0;
+				}
+
+				.shoe-type{
+					list-style-type: none;
+				}
+
+				.nav-group{
+					padding-left: 20px;
+					padding-top: 5px;
+				}
+
+				#main-content{
+					width: 60%;
+					float: left;
+				}
+
+				#main-top-line{
+					border-bottom: 1px solid #e3e5e7;
+					font-family: Athelas, Garamond, "Freight Text", "Tiempos Text", "Times New Roman", serif;
+					text-align: center;
+					padding: 20px 0;
+					background-image: url("https://previews.123rf.com/images/malewitch/malewitch1208/malewitch120800001/14689733-Multicolored-female-shoes-background-Stock-Photo-shoes-shoe.jpg");
+					background-size: 25%;
+					box-shadow: inset 0 -5px 5px 0 rgba(0, 0, 0, .3);
+				}
+
+
+
+				#main-top-line>h1{
+					margin: 0;
+					padding: 10px 20px;
+					background: #000;
+					color: #fff;
+					display: inline;
+				}
+
+				#goods-displayed{
+					border-bottom: 1px solid #e3e5e7;
+					padding: 20px;
+				}
+
+				#main-right-bar{
+					width: 20%;
+					padding: 20px;
+					float: left;
+					border-left: 1px solid #e3e5e7;
+					background-color: #f1f1f1;
+				}
+
+				#cart-header{
+					background-color: #cccccc;
+					text-align: center;
+				}
+
+				#ordered-goods{
+
+				}
+
+				#coupon{
+                  margin: 20px 0;
+                  padding: 20px 0;
+                  border-top: 1px solid #000;
+                  border-bottom: 1px solid #000;
+				}
+
+				#enter-coupon{
+					width: 100%;
+					margin: 20px 0px;
+				}
+
+				#pre-coupon-text{
+					text-align: right;
+				}
+				
+				#total{
+
+				}
+
+				#proceed-btn{
+
+				}
+
+				#main-bottom-line{
+					height: 40px;
+					background-color: #252627;
+					clear: both;
+					color: #f1f1f1;
+					height: 200px;
+					padding: 20px;
+				}
+
+				#content-wrapper{
+					min-height: 100%;
+					margin-bottom: -200px;
+				}
+
+				#content-wrapper:after{
+					content: "";
+					display: block;
+					height: 200px;
+				}
+
+				#products-list {
+                  clear: both;
+                  overflow: hidden;
+                  margin-bottom: 40px;
+				}
+
+				.product{
+					float: left;
+					width: 33.3333333%;
+					border: 1px solid #e3e5e7;
+					padding: 10px 10px 10px 10px;
+					max-height: 333px;
+				}
+
+				.product:hover {
+					border: 1px solid #bdf;
+					box-shadow: inset 0 0 10px 2px #bdf;
+
+				}
+				.product-name{
+					text-align: center;
+					margin: 10px 0 5px;
+				}
+				.product-price{
+					display: block;
+					text-align: center;
+					padding: 10px;
+				}
+				#enter-coupon{
+					width: 100%;
+					margin: 20px 0px;
+				}	
+				.add-to-order-button{
+					width: 100%;
+					display: block;
+					background: #fff;
+					border: 3px solid #000;
+					color: #000;
+					padding: 10px;
+					text-align: center;
+					font-weight: 600;
+					text-decoration: none;
+				}
+				.add-to-order-button:hover{
+					background: #000000;
+					color: #fff;
+				}
+				#ordered-goods{
+					background-color: #252627;
+					color: #fff;
+					padding: 20px;
+					font-size: 0.7em;
+				}
+
+				#ordered-goods>ol {
+					margin: 0;
+					padding: 0;
+				}
+
