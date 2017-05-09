@@ -20,7 +20,7 @@
 
 
 
-function Product(id, name, images, quantityAvailable, sizesAvailable, price, designer, type){
+var Product = function(id, name, images, quantityAvailable, sizesAvailable, price, designer, type){
 	this.id = id;
 	this.name = name;
 	this.images = images;
@@ -85,14 +85,18 @@ op.addItem = function(newItem){
 		this.items.push(newItem);
 	}
 }
-
+//TODO: needs to be moved to DATA/ coupons should be created with Coupon constructor
 op.availableCoupons = {
 	'spring10' : 0.1,
 	'first20'  : 0.2
 }
 
 op.applyCoupon = function(code) {
-	this.discount = this.availableCoupons[code];
+	var discount = this.availableCoupons[code];
+
+	if (discount) {
+		this.discount += discount;
+	}
 }
 
 op.totalPrice = function(price){
@@ -118,7 +122,7 @@ op.shippingPrice = function(){
 
 op.toHTML = function() {
 	if (this.items.length === 0) {
-		return "You have not ordered anything yet"
+		return "You have not ordered anything yet";
 	} else {
 		var HTML = "<h3 id=\"cart-header\">Currently in your cart:</h3><div id=\"ordered-goods\"><ol>";
 
@@ -129,7 +133,7 @@ op.toHTML = function() {
 		return HTML.concat("</ol></div><span id=\"total-price\">Total Price:", this.totalPrice(), "</span><span id=\"shipping-price\">Shipping price:", this.shippingPrice(), "</span><span id=\"total-price-with-discount\">Total price with discount:", this.totalPriceWithDiscount(), "</span><button id=\"proceed-btn\">Order</button>")
 	}
 }
-
+//TODO: move hardcode into PostgreSQL or MongoDB
 var DATA = {
 	products: [
 	   new Product(1,  "DSQUARED2 Barbed Wire Sandal",    ["http://a3.zassets.com/images/z/3/2/5/4/1/3/3254131-p-LARGE_SEARCH.jpg", "http://a3.zassets.com/images/z/3/2/5/4/1/3/3254131-1-MULTIVIEW.jpg", "http://a1.zassets.com/images/z/3/2/5/4/1/3/3254131-3-MULTIVIEW.jpg","http://a1.zassets.com/images/z/3/2/5/4/1/3/3254131-6-MULTIVIEW.jpg"],  10, [35,36,37,38],       500,  "DSQUARED2",         ["Heels", "Sandals"]),
@@ -137,9 +141,9 @@ var DATA = {
 	   new Product(3,  "DSQUARED2 Jeweled Wedge Sandal",  ["http://a3.zassets.com/images/z/3/0/8/4/5/1/3084513-p-LARGE_SEARCH.jpg", "http://a2.zassets.com/images/z/3/0/8/4/5/1/3084513-3-MULTIVIEW.jpg", "http://a3.zassets.com/images/z/3/0/8/4/5/1/3084513-5-MULTIVIEW.jpg", "http://a1.zassets.com/images/z/3/0/8/4/5/1/3084513-6-MULTIVIEW.jpg"], 10, [35,36,38,39,40],    750,  "DSQUARED2",         ["Heels","Sandals"]), 
 	   new Product(4,  "CoSTUME NATIONAL 40639 22295",    ["http://a1.zassets.com/images/z/3/2/7/6/6/1/3276612-p-LARGE_SEARCH.jpg", "http://a1.zassets.com/images/z/3/2/7/6/6/1/3276612-4-MULTIVIEW.jpg","http://a3.zassets.com/images/z/3/2/7/6/6/1/3276612-5-MULTIVIEW.jpg","http://a1.zassets.com/images/z/3/2/7/6/6/1/3276612-3-MULTIVIEW.jpg"],   10, [35,36,37,38,39,40], 830,  "CoSTUME NATIONAL",  ["Boots"]),
 	   new Product(5,  "Sergio Rossi Puzzle Basic",       ["http://a2.zassets.com/images/z/3/2/6/2/2/8/3262284-p-LARGE_SEARCH.jpg","http://a2.zassets.com/images/z/3/2/6/2/2/8/3262284-3-MULTIVIEW.jpg", "http://a2.zassets.com/images/z/3/2/6/2/2/8/3262284-4-MULTIVIEW.jpg", "http://a2.zassets.com/images/z/3/2/6/2/2/8/3262284-6-MULTIVIEW.jpg"],  10, [35],                899,  "Sergio Rossi",      ["Heels"]),
-	   new Product(6,  "DSQUARED2 Ankle Boot",            ["http://a2.zassets.com/images/z/3/2/6/2/2/8/3262284-p-LARGE_SEARCH.jpg", "http://a2.zassets.com/images/z/3/3/1/5/6/5/3315656-4-MULTIVIEW.jpg", "http://a2.zassets.com/images/z/3/3/1/5/6/5/3315656-5-MULTIVIEW.jpg", "http://a3.zassets.com/images/z/3/3/1/5/6/5/3315656-6-MULTIVIEW.jpg"],    10, [39,40],             905,  "DSQUARED2",         ["Boots", "Heels"]), 
+	   new Product(6,  "DSQUARED2 Ankle Boot",            ["http://a2.zassets.com/images/z/3/2/6/2/2/8/3262284-p-LARGE_SEARCH.jpg", "http://a2.zassets.com/images/z/3/3/1/5/6/5/3315656-4-MULTIVIEW.jpg", "http://a2.zassets.com/images/z/3/3/1/5/6/5/3315656-5-MULTIVIEW.jpg", "http://a3.zassets.com/images/z/3/3/1/5/6/5/3315656-6-MULTIVIEW.jpg"], 10, [39,40],             905,  "DSQUARED2",         ["Boots", "Heels"]), 
 	   new Product(7,  "Philipp Plein High Heels Turtle", ["http://a3.zassets.com/images/z/3/3/1/2/7/1/3312717-p-LARGE_SEARCH.jpg", "http://a1.zassets.com/images/z/3/3/1/2/7/1/3312717-2-MULTIVIEW.jpg", "http://a1.zassets.com/images/z/3/3/1/2/7/1/3312717-3-MULTIVIEW.jpg","http://a2.zassets.com/images/z/3/3/1/2/7/1/3312717-5-MULTIVIEW.jpg"],  10, [35,36,37,38,39,40], 701,  "Philipp Plein",     ["Heels"]),
-	   new Product(8,  "Marchesa Camilla",                ["http://a3.zassets.com/images/z/3/3/1/2/7/1/3312717-p-LARGE_SEARCH.jpg", "http://a3.zassets.com/images/z/3/6/6/2/7/3/3662730-3-MULTIVIEW.jpg", "http://a3.zassets.com/images/z/3/6/6/2/7/3/3662730-5-MULTIVIEW.jpg","http://a3.zassets.com/images/z/3/6/6/2/7/3/3662730-6-MULTIVIEW.jpg"],     10, [35,36,39,40],       822,  "Marchesa",          ["Heels"]),
+	   new Product(8,  "Marchesa Camilla",                ["http://a3.zassets.com/images/z/3/3/1/2/7/1/3312717-p-LARGE_SEARCH.jpg", "http://a3.zassets.com/images/z/3/6/6/2/7/3/3662730-3-MULTIVIEW.jpg", "http://a3.zassets.com/images/z/3/6/6/2/7/3/3662730-5-MULTIVIEW.jpg","http://a3.zassets.com/images/z/3/6/6/2/7/3/3662730-6-MULTIVIEW.jpg"],  10, [35,36,39,40],       822,  "Marchesa",          ["Heels"]),
 	   new Product(9,  "Dolce & Gabbana Maolica",         ["http://a1.zassets.com/images/z/3/7/0/8/9/1/3708918-p-LARGE_SEARCH.jpg","http://a1.zassets.com/images/z/3/7/0/8/9/1/3708918-4-MULTIVIEW.jpg","http://a1.zassets.com/images/z/3/7/0/8/9/1/3708918-5-MULTIVIEW.jpg","http://a3.zassets.com/images/z/3/7/0/8/9/1/3708918-6-MULTIVIEW.jpg"],    10, [35,36,37,38,39,40], 768,  "Dolce & Gabbana",   ["Sandals"]), 
 	   new Product(10, "CoSTUME NATIONAL 16012 22288",    ["http://a2.zassets.com/images/z/3/2/7/6/6/1/3276618-p-LARGE_SEARCH.jpg", "http://a2.zassets.com/images/z/3/2/7/6/6/1/3276618-3-MULTIVIEW.jpg", "http://a1.zassets.com/images/z/3/2/7/6/6/1/3276618-4-MULTIVIEW.jpg","http://a1.zassets.com/images/z/3/2/7/6/6/1/3276618-5-MULTIVIEW.jpg"],  10, [35,40],             1001, "CoSTUME NATIONAL",  ["Heels"]),
 	   new Product(11, "Vivienne Westwood Conjurer",      ["http://a3.zassets.com/images/z/3/6/6/0/4/7/3660470-p-LARGE_SEARCH.jpg","http://a1.zassets.com/images/z/3/6/6/0/4/7/3660470-3-MULTIVIEW.jpg","http://a2.zassets.com/images/z/3/6/6/0/4/7/3660470-4-MULTIVIEW.jpg","http://a2.zassets.com/images/z/3/6/6/0/4/7/3660470-5-MULTIVIEW.jpg"],    10, [35,36,37,40],       754,  "Vivienne Westwood", ["Heels"])
